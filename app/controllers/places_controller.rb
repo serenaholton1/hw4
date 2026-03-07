@@ -9,19 +9,25 @@ class PlacesController < ApplicationController
   end
 
   def index
-    @places = Place.all
+    @places = Place.where({ "user_id" => @current_user["id"] })
   end
 
   def show
-    @place = Place.find_by({ "id" => params["id"] })
-    if @current_user == nil
-      @entries = Entry.none
-    else
-      @entries = Entry.where({
-        "place_id" => @place["id"],
-        "user_id" => @current_user["id"]
-      }).order({ "occurred_on" => :desc, "created_at" => :desc })
+    @place = Place.find_by({
+      "id" => params["id"],
+      "user_id" => @current_user["id"]
+    })
+
+    if @place == nil
+      flash["notice"] = "Place not found."
+      redirect_to "/places"
+      return
     end
+
+    @entries = Entry.where({
+      "place_id" => @place["id"],
+      "user_id" => @current_user["id"]
+    }).order({ "occurred_on" => :desc, "created_at" => :desc })
   end
 
   def new
@@ -30,6 +36,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new
     @place["name"] = params["name"]
+    @place["user_id"] = @current_user["id"]
     @place.save
     redirect_to "/places"
   end
