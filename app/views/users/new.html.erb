@@ -1,23 +1,24 @@
-<div class="auth-card">
-  <h1>New User Account</h1>
-  <p class="entry-subtitle">Create your account to start journaling places.</p>
+<div class="card border-0 shadow-sm mx-auto" style="max-width: 540px;">
+  <div class="card-body">
+    <h1 class="h3">New User Account</h1>
 
-  <form action="/users" method="post">
-    <div class="field">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" required>
-    </div>
+    <form action="/users" method="post">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" id="username" class="form-control" required>
+      </div>
 
-    <div class="field">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
-    </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+      </div>
 
-    <div class="field">
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" required>
-    </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" id="password" class="form-control" required>
+      </div>
 
-    <button>Signup</button>
-  </form>
+      <button class="btn btn-primary">Signup</button>
+    </form>
+  </div>
 </div>

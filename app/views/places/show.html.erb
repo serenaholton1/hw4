@@ -1,27 +1,26 @@
-<div class="place-hero">
-  <h1><%= @place&.name %></h1>
-  <p class="place-subtitle">A snapshot of memories from this place.</p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h2 mb-0"><%= @place&.name %></h1>
   <% if @current_user != nil %>
-    <p>
-      <a href="/entries/new?place_id=<%= @place&.id %>">Add a new entry</a>
-    </p>
+    <a href="/entries/new?place_id=<%= @place&.id %>" class="btn btn-success">Add New Entry</a>
   <% end %>
 </div>
 
-<div class="entries-section">
-  <h2>Entries</h2>
+<h2 class="h4 mb-3">My Entries</h2>
 
-  <% if @entries.any? %>
-    <ul class="entries-list">
-      <% @entries.each do |entry| %>
-        <li class="entry-item">
-          <p class="entry-title"><strong><%= entry.title %></strong></p>
-          <p class="entry-date"><%= entry.occurred_on %></p>
-          <p class="entry-description"><%= entry.description %></p>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>No entries yet. Add your first memory!</p>
-  <% end %>
-</div>
+<% if @entries.any? %>
+  <div class="row g-3">
+    <% @entries.each do |entry| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 card-title"><%= entry.title %></h3>
+            <p class="text-muted mb-2"><%= entry.occurred_on %></p>
+            <p class="card-text mb-0"><%= entry.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-muted">No entries yet. Add your first memory.</p>
+<% end %>

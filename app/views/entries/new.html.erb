@@ -1,25 +1,26 @@
-<div class="entry-card">
-  <h1>New Entry</h1>
-  <p class="entry-subtitle">Capture a memory while it is fresh.</p>
+<div class="card border-0 shadow-sm">
+  <div class="card-body">
+    <h1 class="h3">New Entry</h1>
 
-  <%= form_with url: "/entries", method: :post, scope: nil, local: true do |form| %>
-    <%= form.hidden_field :place_id, value: params["place_id"] %>
+    <%= form_with url: "/entries", method: :post, scope: nil, local: true do |form| %>
+      <%= form.hidden_field :place_id, value: params["place_id"] %>
 
-    <div class="field">
-      <%= form.label :title, "Title", for: "title_input" %>
-      <%= form.text_field :title, id: "title_input", placeholder: "Sunset walk, best gelato ever..." %>
-    </div>
+      <div class="mb-3">
+        <%= form.label :title, "Title", for: "title_input", class: "form-label" %>
+        <%= form.text_field :title, id: "title_input", class: "form-control", required: true %>
+      </div>
 
-    <div class="field">
-      <%= form.label :occurred_on, "Occurred on", for: "occurred_on_input" %>
-      <%= form.date_field :occurred_on, id: "occurred_on_input" %>
-    </div>
+      <div class="mb-3">
+        <%= form.label :occurred_on, "Occurred On", for: "occurred_on_input", class: "form-label" %>
+        <%= form.date_field :occurred_on, id: "occurred_on_input", class: "form-control", required: true %>
+      </div>
 
-    <div class="field">
-      <%= form.label :description, "Description", for: "description_input" %>
-      <%= form.text_area :description, id: "description_input", rows: 6, placeholder: "What happened? Who was there? Tiny details you'll want to remember..." %>
-    </div>
+      <div class="mb-3">
+        <%= form.label :description, "Description", for: "description_input", class: "form-label" %>
+        <%= form.text_area :description, id: "description_input", class: "form-control", rows: 5, required: true %>
+      </div>
 
-    <%= form.submit "Create entry" %>
-  <% end %>
+      <%= form.submit "Create entry", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>

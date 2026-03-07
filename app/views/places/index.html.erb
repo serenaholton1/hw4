@@ -1,19 +1,17 @@
-<div class="places-hero">
-  <h1>Places Journal</h1>
-  <p class="places-subtitle">Every destination has a story. Start yours here.</p>
-  <p><a href="/places/new">Add a new place</a></p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h2 mb-0">Places</h1>
+  <a href="/places/new" class="btn btn-success">Add New Place</a>
 </div>
 
-<div class="places-list">
-  <% if @places.any? %>
-    <ul>
-      <% @places.each do |place| %>
-        <li>
-          <a href="/places/<%= place.id %>"><%= place.name %></a>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>No places yet. Add your first one!</p>
-  <% end %>
-</div>
+<% if @places.any? %>
+  <div class="list-group">
+    <% @places.each do |place| %>
+      <a href="/places/<%= place.id %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <span><%= place.name %></span>
+        <span class="badge text-bg-light">View</span>
+      </a>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-muted mb-0">No places yet. Add your first one.</p>
+<% end %>
