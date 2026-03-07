@@ -11,22 +11,121 @@
     <%= stylesheet_link_tag "application" %>
 
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Nunito:wght@400;500;700&display=swap");
+
+      :root {
+        --rose: #ff6f91;
+        --peach: #ff9671;
+        --mint: #27c9a8;
+        --ink: #2c2a33;
+      }
+
       body {
+        font-family: "Nunito", system-ui, sans-serif;
         background: radial-gradient(1200px 600px at 10% -10%, #b7d3ff 0%, transparent 60%),
                     radial-gradient(900px 500px at 90% 10%, #ffd6e3 0%, transparent 55%),
                     linear-gradient(180deg, #f7f7fb 0%, #f3f7ff 100%);
         min-height: 100vh;
+        color: var(--ink);
       }
 
       .journal-navbar {
-        background: #ffffffcc;
+        background: #fffffff0;
         backdrop-filter: blur(6px);
+        box-shadow: 0 6px 22px rgba(45, 42, 56, 0.08);
+      }
+
+      .navbar-brand {
+        font-family: "Fraunces", serif;
+        letter-spacing: -0.01em;
+      }
+
+      .nav-link {
+        font-weight: 700;
       }
 
       .page-shell {
-        background: #ffffffcc;
+        background: #fffffff0;
         border: 1px solid rgba(31, 31, 36, 0.08);
-        border-radius: 16px;
+        border-radius: 24px;
+        box-shadow: 0 22px 44px rgba(46, 43, 57, 0.11);
+      }
+
+      .cute-title {
+        font-family: "Fraunces", serif;
+        letter-spacing: -0.02em;
+      }
+
+      .cute-subtitle {
+        color: #6a627b;
+      }
+
+      .card {
+        border-radius: 18px;
+      }
+
+      .list-group-item {
+        border-radius: 14px !important;
+        border: 1px solid rgba(46, 43, 57, 0.08);
+      }
+
+      .btn {
+        border-radius: 999px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--rose), var(--peach));
+        border-color: transparent;
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus {
+        background: linear-gradient(135deg, #ff5f86, #ff8b67);
+        border-color: transparent;
+      }
+
+      .btn-success {
+        background: linear-gradient(135deg, var(--mint), #6de6ce);
+        border-color: transparent;
+        color: #143b34;
+      }
+
+      .btn-success:hover,
+      .btn-success:focus {
+        background: linear-gradient(135deg, #21b596, #5cd7c0);
+        border-color: transparent;
+        color: #143b34;
+      }
+
+      .btn-outline-primary {
+        border-color: #ff6f91;
+        color: #ff4d78;
+      }
+
+      .btn-outline-danger {
+        border-color: #ff8e8e;
+        color: #d34c4c;
+      }
+
+      .form-control {
+        border-radius: 14px;
+        border-color: rgba(46, 43, 57, 0.13);
+      }
+
+      .form-control:focus {
+        border-color: #ff93b2;
+        box-shadow: 0 0 0 0.2rem rgba(255, 111, 145, 0.18);
+      }
+
+      .entry-card-hover {
+        transition: transform 150ms ease, box-shadow 150ms ease;
+      }
+
+      .entry-card-hover:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 28px rgba(46, 43, 57, 0.12) !important;
       }
     </style>
   </head>

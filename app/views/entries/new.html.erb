@@ -1,6 +1,7 @@
 <div class="card border-0 shadow-sm">
   <div class="card-body">
-    <h1 class="h3">New Entry</h1>
+    <h1 class="h3 cute-title">New Entry</h1>
+    <p class="cute-subtitle">Capture the details before they fade.</p>
 
     <%= form_with url: "/entries", method: :post, scope: nil, local: true do |form| %>
       <%= form.hidden_field :place_id, value: params["place_id"] %>
