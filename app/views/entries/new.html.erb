@@ -21,6 +21,11 @@
         <%= form.text_area :description, id: "description_input", class: "form-control", rows: 5, required: true %>
       </div>
 
+      <div class="mb-3">
+        <%= form.label :image, "Image (optional)", for: "image_input", class: "form-label" %>
+        <%= form.file_field :image, id: "image_input", class: "form-control", accept: "image/*" %>
+      </div>
+
       <%= form.submit "Create entry", class: "btn btn-primary" %>
     <% end %>
   </div>

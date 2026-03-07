@@ -41,6 +41,9 @@ class EntriesController < ApplicationController
     @entry["place_id"] = @place["id"]
     @entry["user_id"] = @current_user["id"]
     @entry.save
+    if params["image"] != nil
+      @entry.image.attach(params["image"])
+    end
     redirect_to "/places/#{@entry["place_id"]}"
   end
 

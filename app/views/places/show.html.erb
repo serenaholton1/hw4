@@ -18,6 +18,11 @@
           <div class="card-body">
             <h3 class="h5 card-title"><%= entry.title %></h3>
             <p class="text-muted mb-2"><%= entry.occurred_on %></p>
+            <% if entry.image.attached? %>
+              <p class="mb-2">
+                <%= image_tag entry.image, class: "img-fluid rounded" %>
+              </p>
+            <% end %>
             <p class="card-text mb-0"><%= entry.description %></p>
           </div>
         </div>
