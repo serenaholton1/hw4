@@ -1,10 +1,13 @@
-<h1>New Place</h1>
+<div class="entry-card">
+  <h1>New Place</h1>
+  <p class="entry-subtitle">Name a place you want to remember.</p>
 
-<form action="/places" method="post">
-  <div class="mb-3">
-    <label for="name_input" class="form-label">Name</label>
-    <input type="text" name="name" id="name_input" class="form-control" required>
-  </div>
+  <%= form_with url: "/places", method: :post, scope: nil, local: true do |form| %>
+    <div class="field">
+      <%= form.label :name, "Name", for: "name_input" %>
+      <%= form.text_field :name, id: "name_input" %>
+    </div>
 
-  <button class="btn btn-primary">Save</button>
-</form>
+    <%= form.submit "Create place" %>
+  <% end %>
+</div>

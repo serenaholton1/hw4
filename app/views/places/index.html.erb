@@ -1,11 +1,19 @@
-<h1>Places</h1>
-
-<div class="list-group mb-3">
-  <% for place in @places %>
-    <a href="/places/<%= place["id"] %>" class="list-group-item list-group-item-action"><%= place["name"] %></a>
-  <% end %>
+<div class="places-hero">
+  <h1>Places Journal</h1>
+  <p class="places-subtitle">Every destination has a story. Start yours here.</p>
+  <p><a href="/places/new">Add a new place</a></p>
 </div>
 
-<p>
-  <a href="/places/new" class="btn btn-success">New place</a>
-</p>
+<div class="places-list">
+  <% if @places.any? %>
+    <ul>
+      <% @places.each do |place| %>
+        <li>
+          <a href="/places/<%= place.id %>"><%= place.name %></a>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No places yet. Add your first one!</p>
+  <% end %>
+</div>
